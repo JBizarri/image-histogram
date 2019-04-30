@@ -39,16 +39,20 @@ void imhist(string const& name, Mat1b const& image) {
 
 int main() {
 	string imageName;
+	cout << "This simple code will convert any colored image to grayscale and output its histogram" << endl;
+	cout << "Feel free to put any image file in the 'x64\\Release\\Resources\\' folder" << endl;
+	cout << "You may use the 'image.jpg' file for testing" << endl;
 	cout << "Type your file name (Example: image.jpg): ";
 	cin >> imageName;
 	cout << endl;
+	Mat image1 = imread("Resources\\"+imageName, IMREAD_COLOR); // This will read a coloured image
 
-
-	Mat3b const image1 = imread(imageName, IMREAD_COLOR); // This will read a coloured image
-	if (image1.empty()) {
-		cout << "Error: Invalid image." << endl;
-		system("pause");
-		return 0;
+	while (image1.empty()) {
+		cout << "Error: Invalid File." << endl;
+		cout << "Type your file name (Example: image.jpg): ";
+		cin >> imageName;
+		cout << endl;
+		image1 = imread("Resources\\"+imageName, IMREAD_COLOR);
 	}
 	Mat1b image1_gray; 
 	Mat img;
