@@ -45,6 +45,11 @@ int main() {
 
 
 	Mat3b const image1 = imread(imageName, IMREAD_COLOR); // This will read a coloured image
+	if (image1.empty()) {
+		cout << "Error: Invalid image." << endl;
+		system("pause");
+		return 0;
+	}
 	Mat1b image1_gray; 
 	Mat img;
 	cvtColor(image1, image1_gray, COLOR_BGR2GRAY); // This will convert image1 to grayscale in image1_gray
