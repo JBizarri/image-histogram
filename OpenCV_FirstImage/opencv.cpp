@@ -38,7 +38,13 @@ void imhist(string const& name, Mat1b const& image) {
 }
 
 int main() {
-	Mat3b const image1 = imread("image.jpg", IMREAD_COLOR); // This will read a coloured image
+	string imageName;
+	cout << "Type your file name (Example: image.jpg): ";
+	cin >> imageName;
+	cout << endl;
+
+
+	Mat3b const image1 = imread(imageName, IMREAD_COLOR); // This will read a coloured image
 	Mat1b image1_gray; 
 	Mat img;
 	cvtColor(image1, image1_gray, COLOR_BGR2GRAY); // This will convert image1 to grayscale in image1_gray
